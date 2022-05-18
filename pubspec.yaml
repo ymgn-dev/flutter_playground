@@ -9,6 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  hooks_riverpod: ^1.0.4
+  flutter_hooks: ^0.18.4
 
 dev_dependencies:
   flutter_test:
