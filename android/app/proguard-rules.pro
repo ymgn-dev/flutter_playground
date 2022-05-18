@@ -1,0 +1,1 @@
+-keep class com.ymgn9314.playground.BuildConfig { *; }

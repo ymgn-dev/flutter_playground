@@ -36,15 +36,25 @@ task selectGoogleServicesJson(type: Copy) {
     into './'
 }
 
+task selectEnvironmentVariable(type: Copy) {
+    from "../../assets/env/.env.${dartEnvironmentVariables.FLAVOR}"
+    into "../../"
+    rename { name -> ".env" }
+}
+
 tasks.whenTaskAdded { task ->
     if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
         task.dependsOn selectGoogleServicesJson
+    }
+    if (task.name == 'preBuild') {
+        task.dependsOn selectEnvironmentVariable
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
 
 android {
     compileSdkVersion flutter.compileSdkVersion
