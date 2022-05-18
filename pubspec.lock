@@ -130,6 +130,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  pedantic_mono:
+    dependency: "direct main"
+    description:
+      name: pedantic_mono
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.19.2"
   riverpod:
     dependency: transitive
     description:

@@ -5,16 +5,18 @@ final helloWorldProvider = Provider((_) => 'Hello world');
 
 void main() {
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: MyApp(),
     ),
   );
 }
 
 class MyApp extends HookConsumerWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String value = ref.watch(helloWorldProvider);
+    final value = ref.watch(helloWorldProvider);
 
     return MaterialApp(
       home: Scaffold(
