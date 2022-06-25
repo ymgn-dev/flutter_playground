@@ -15,9 +15,9 @@ do
     if [ $(echo $item | grep 'FLAVOR') ] ; then
         value=${item#*=}
         file="${SRCROOT}/../assets/env/.env.${value}"
-        while read line
+        while IFS= read -r line || [ -n "$line" ]
         do
             echo $line >> ${OUTPUT_FILE}
-        done < $file
+        done < "$file"
     fi
 done
